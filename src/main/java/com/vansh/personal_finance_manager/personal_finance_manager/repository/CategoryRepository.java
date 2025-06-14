@@ -14,6 +14,7 @@ public interface CategoryRepository extends JpaRepository<com.vansh.personal_fin
     List<Category> findByUserOrIsDefault(User user, boolean isDefault);
     Optional<Category> findByNameAndIsDefault(String name, boolean isDefault);
     Optional<Category> findByNameAndUser(String name, User user);
+    Optional<Category> findByNameAndUserOrNameAndIsDefault(String name1, User user, String name2, boolean isDefault);
     Optional<Category> findByIdAndUserOrIsDefault(Long id, User user, boolean isDefault);
     boolean existsByNameAndUser(String name, User user);
     List<Category> findByTypeAndUserOrIsDefault(CategoryType type, User user, boolean isDefault);

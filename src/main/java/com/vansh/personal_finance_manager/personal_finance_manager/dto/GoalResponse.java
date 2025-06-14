@@ -11,9 +11,9 @@ public class GoalResponse {
     private BigDecimal targetAmount;
     private LocalDate targetDate;
     private LocalDate startDate;
-    private BigDecimal currentProgress;
-    private BigDecimal progressPercentage;
-    private BigDecimal remainingAmount;
+    private String currentProgress;
+    private String progressPercentage;
+    private String remainingAmount;
 
     // Getters and Setters
     public Long getId() {
@@ -56,27 +56,27 @@ public class GoalResponse {
         this.startDate = startDate;
     }
 
-    public BigDecimal getCurrentProgress() {
+    public String getCurrentProgress() {
         return currentProgress;
     }
 
-    public void setCurrentProgress(BigDecimal currentProgress) {
+    public void setCurrentProgress(String currentProgress) {
         this.currentProgress = currentProgress;
     }
 
-    public BigDecimal getProgressPercentage() {
+    public String getProgressPercentage() {
         return progressPercentage;
     }
 
-    public void setProgressPercentage(BigDecimal progressPercentage) {
+    public void setProgressPercentage(String progressPercentage) {
         this.progressPercentage = progressPercentage;
     }
 
-    public BigDecimal getRemainingAmount() {
+    public String getRemainingAmount() {
         return remainingAmount;
     }
 
-    public void setRemainingAmount(BigDecimal remainingAmount) {
+    public void setRemainingAmount(String remainingAmount) {
         this.remainingAmount = remainingAmount;
     }
 }

@@ -42,11 +42,14 @@ public class CategoryService {
         return categoryRepository.findByIdAndUserOrIsDefault(id, user, true).isPresent();
     }
 
-    public Category getCategoryById(Long id, User user) {
-        return categoryRepository.findByIdAndUserOrIsDefault(id, user, true)
+    // public Category getCategoryById(Long id, User user) {
+    //     return categoryRepository.findByIdAndUser(id, user)
+    //             .orElseThrow(() -> new RuntimeException("Category not found"));
+    // }
+    public Category getCategoryByNameAndUserOrNameAndIsDefault(String name, User user) {
+        return categoryRepository.findByNameAndUserOrNameAndIsDefault(name, user, name, true)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
     }
-
     public Optional<Category> getCategoryByName(String categoryName) {
         return categoryRepository.findByNameAndIsDefault(categoryName, true);
     }

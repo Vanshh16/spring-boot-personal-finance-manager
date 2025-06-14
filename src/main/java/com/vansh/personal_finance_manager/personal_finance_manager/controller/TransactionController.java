@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,13 @@ public class TransactionController {
         User user = getCurrentUser(session);
         String name = request.getCategory();
 
-        System.out.println(name);
+        if (request.getAmount().equals(new BigDecimal(0))) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Amount cannot be zero"));
+        }
+        if (request.getAmount().compareTo(new BigDecimal(0)) < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Amount cannot be negative"));
+        }
+        // System.out.println(name);
         Optional<Category> categoryOpt = categoryRepository.findByNameAndUser(name, user);
 
         if (categoryOpt.isEmpty()) {
@@ -78,7 +85,7 @@ public class TransactionController {
     public ResponseEntity<?> getTransactions(
             @RequestParam(required = false) String startDate,
             @RequestParam(required = false) String endDate,
-            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) String category,
             HttpSession session) {
         User user = getCurrentUser(session);
 
@@ -87,15 +94,12 @@ public class TransactionController {
 
         List<Transaction> transactions;
 
-        if (categoryId != null) {
-            Category category = categoryService.getCategoryById(categoryId, user);
-            if (category != null) {
-                System.out.println(category.getName());
-            }
-            if (category == null) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Invalid category ID"));
-            }
-            transactions = transactionService.getTransactionsByUserAndCategoryAndDateBetween(user, category, start,
+        if (category != null) {
+            Category foundCategory = categoryService.getCategoryByNameAndUserOrNameAndIsDefault(category, user);
+
+            // System.out.println("Category: " + foundCategory.getName());
+
+            transactions = transactionService.getTransactionsByUserAndCategoryAndDateBetween(user, foundCategory, start,
                     end);
         } else {
             transactions = transactionService.getTransactionsByUserAndDateBetween(user, start, end);
