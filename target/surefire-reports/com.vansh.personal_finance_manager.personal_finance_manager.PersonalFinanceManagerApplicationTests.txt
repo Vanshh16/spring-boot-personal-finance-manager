@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.vansh.personal_finance_manager.personal_finance_manager.PersonalFinanceManagerApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.218 s -- in com.vansh.personal_finance_manager.personal_finance_manager.PersonalFinanceManagerApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.02 s -- in com.vansh.personal_finance_manager.personal_finance_manager.PersonalFinanceManagerApplicationTests
