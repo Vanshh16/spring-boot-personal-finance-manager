@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.vansh.personal_finance_manager.personal_finance_manager.controller.ReportControllerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in com.vansh.personal_finance_manager.personal_finance_manager.controller.ReportControllerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in com.vansh.personal_finance_manager.personal_finance_manager.controller.ReportControllerTest
