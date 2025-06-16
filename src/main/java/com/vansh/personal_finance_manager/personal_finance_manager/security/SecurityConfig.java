@@ -15,7 +15,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
     http
         .csrf(csrf -> csrf.disable()) // Only for APIs (safe if no forms)
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/","/api/auth/**").permitAll()
             .anyRequest().authenticated()
         )
         .formLogin(login -> login.disable()) // Disables default HTML login

@@ -39,6 +39,11 @@ cd personal-finance-manager
 
 The app will start at: `http://localhost:8080`
 
+Open this address in your browser and it should diplay
+```bash
+Personal Finance Manager API is running.
+```
+
 You can test endpoints using Postman or the built-in Swagger if integrated.
 
 ---
